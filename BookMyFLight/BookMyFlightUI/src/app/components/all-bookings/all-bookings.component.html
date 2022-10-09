@@ -1,0 +1,20 @@
+<h1>Bookings</h1>
+<div id="extra_box">
+    <div class="booking_box" *ngFor="let b of bookingArr">
+        <div class="box-style-5">
+        <div class="flight_box">
+            Source : {{b.flight.source}} <br>
+            Destination : {{b.flight.destination}} <br>
+            Departure Date : {{b.flight.departureDate}} <br>
+            Departure Time : {{b.flight.departureTime}} <br>
+            Arrival Date : {{b.flight.arrivalDate}} <br>
+            Arrival Time : {{b.flight.arrivalTime}} <br>
+            Fare / Adult : {{b.flight.adultFare}} <br>
+            Fare / Child : {{b.flight.childFare}} <br>
+        </div>
+        Total Adults : {{b.adult}} <br>
+        Total Childs : {{b.child}} <br>
+        Total Price : Rs{{b.price}} <br>
+    </div>
+</div>
+</div>

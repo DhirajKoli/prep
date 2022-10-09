@@ -1,0 +1,71 @@
+.course_box{
+  border: 1px solid;
+  font-size: larger;
+  padding: 15px;
+  width: 100%-10px;
+  margin: 10px
+}
+
+.course_box1{
+  border: 1px solid;
+  font-size: larger;
+  padding: 15px ;
+  width: 100%;
+  float: center;
+  background: #f4f7f8;
+  border-radius: 8px;
+}
+
+#extra_box{
+  width: 100%;
+  padding: 0px 100px;
+  overflow: hidden;
+}
+
+.booking_box{
+  border: 1px solid;
+  font-size: larger;
+  padding: 15px;
+  height: auto;
+  width: 100%;
+  float: center;
+  margin: 10px    
+}
+
+.box-style-5{
+max-width: 500px;
+padding: 10px 20px;
+background: #f4f7f8;
+margin: 10px auto;
+padding: 20px;
+background: #f4f7f8;
+border-radius: 8px;
+font-family: Georgia, "Times New Roman", Times, serif;
+}
+
+
+.row.content {
+height: 94vh;
+}
+
+/* Set gray background color and 100% height */
+.sidenav {
+padding-top: 20px;
+background-color: #f1f1f1;
+height: 100%;
+}
+
+.text-center{
+background-color: seashell;
+}
+
+/* On small screens, set height to 'auto' for sidenav and grid */
+@media screen and (max-width: 767px) {
+.sidenav {
+  height: auto;
+  padding: 15px;
+}
+.row.content {
+  height: auto;
+}
+}

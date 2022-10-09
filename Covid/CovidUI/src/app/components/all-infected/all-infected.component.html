@@ -1,0 +1,37 @@
+
+<div style="padding: 2% 10%">
+	<h1>All Infected Employee</h1>
+	<div class="table1">
+	  <table>
+		<thead>
+		  <tr>
+			<th>Employee Name</th>
+			<th>Gender</th>
+			<th>Project</th>
+			<th>City</th>
+			<th>Infected Date</th>
+			<th>Status</th>
+		  </tr>
+		</thead>
+		<tbody>
+		  <tr *ngFor="let i of infectedArray">
+			<td>{{ i.employee.name }}</td>
+			<td>
+				{{ i.employee.gender }}
+			</td>
+			<td>
+				{{ i.employee.project }}
+			</td>
+			<td>
+				{{ i.employee.city }}
+			</td>
+			<td class="wrap">{{ i.affectedDate }}</td>
+			<td>
+				{{ i.status }}
+			</td>
+		  </tr>
+		</tbody>
+	  </table>
+	</div>
+  </div>
+  

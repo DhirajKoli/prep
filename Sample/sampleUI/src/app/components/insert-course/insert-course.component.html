@@ -1,0 +1,49 @@
+<div class="form-style-5">
+	<form #courseForm="ngForm" (submit)="onCourseSubmit(courseForm)">
+		<fieldset>
+			<legend><span class="number">1</span>Course Details</legend>
+			<label>Course Name: </label>
+			<input type="text" name="name" ngModel #name="ngModel" placeholder="Course Name *" required minlength="2" />
+			<div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert">
+				<div *ngIf="name.errors?.['required']">Name is required.</div>
+				<div *ngIf="name.errors?.['minlength']">
+					Name must be at least 2 characters long.
+				</div>
+			</div>
+			<label>Credits: </label>
+			<input type="text" name="credits" ngModel #credits="ngModel" placeholder="Credits *" required />
+			<div *ngIf="credits.invalid && (credits.dirty || credits.touched)" class="alert">
+				<div *ngIf="credits.errors?.['required']">Credit is required.</div>
+			</div>
+			<label>Fees: </label>
+			<input type="text" name="fee" ngModel #fee="ngModel" placeholder="Fees *" />
+			<label>Start Date: </label>
+			<input type="date" name="date" ngModel  #date="ngModel" required min={{dateV}}/>
+			<br />
+			<div *ngIf="date.invalid && (date.dirty || date.touched)" class="alert">
+				<div *ngIf="date.errors?.['required']">Date is required.</div>
+			</div>
+			<label>Batch Time: </label>
+			<input type="time" name="time" ngModel #time="ngModel" /><br />
+		</fieldset>
+		<fieldset>
+			<legend><span class="number">2</span>Department Details</legend>
+			<label class="data-list-input" >Department Name: </label>
+			<select class="data-list-input" ngModel #departmentName="ngModel" name="departmentName" (change)="departmentSelect(courseForm)">
+				<option *ngFor="let d of departmentArray" value="{{d.name}}">{{d.name}}</option>
+			</select> 
+			<br /><br />
+
+			<label>Email: </label>
+			<input type="text" name="emailId" ngModel email="true" #emailId="ngModel" placeholder="Email Id *"
+				required />
+			<div *ngIf="emailId.invalid && (emailId.dirty || emailId.touched)" class="alert">
+				<div *ngIf="emailId.errors?.['required']">Email is required.</div>
+				<div *ngIf="emailId.errors?.['email']">Email Invalid</div>
+			</div>
+
+			<br />
+		</fieldset>
+		<input type="submit" value="Insert Course" [disabled]="!courseForm.valid"/>
+	</form>
+</div>

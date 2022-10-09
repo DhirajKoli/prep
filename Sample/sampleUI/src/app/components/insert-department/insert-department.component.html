@@ -1,0 +1,17 @@
+<div class="form-style-5">
+  <form #departmentForm="ngForm" (submit)="onDepartmentSubmit(departmentForm)">
+    <fieldset>
+      <legend><span class="number">1</span>Department Details</legend>
+      <label>Name: </label>
+      <input type="text" name="name" ngModel #name="ngModel" placeholder="Name *"  required
+        minlength="4" />
+      <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert">
+        <div *ngIf="name.errors?.['required']">Name is required.</div>
+        <div *ngIf="name.errors?.['minlength']">
+          Name must be at least 4 characters long.
+        </div>
+      </div>
+    </fieldset>
+    <input type="submit" value="Insert Department" [disabled]="!departmentForm.valid" />
+  </form>
+</div>

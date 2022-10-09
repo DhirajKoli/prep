@@ -1,0 +1,41 @@
+<app-nav-bar1></app-nav-bar1>
+<div class="form-style-5">
+    <form #leaveForm="ngForm" (submit)="onSubmit(leaveForm)">
+        <fieldset>
+            <legend><span class="number">1</span>Approve Deny Leave</legend>
+			<label>Employee Id: </label>
+            <input type="text" [disabled]="true" placeholder="{{leave.employee.id}}"/> 
+            <label>Employee Name: </label>
+            <input type="text" [disabled]="true" placeholder={{leave.employee.name}}/> 
+			<label>Leave Balance: </label>
+            <input type="text" [disabled]="true" placeholder={{leave.employee.leaveRem}}/> 
+			<label>Start Date: </label>
+            <input type="text" [disabled]="true" placeholder={{leave.start}}/> 
+            <label>End Date: </label>
+            <input type="text" [disabled]="true" placeholder={{leave.end}}> <br>
+			<label>Number of Days : </label>
+            <input type="text" [disabled]="true" placeholder={{leave.leaveDays}}> <br>
+			<label class="data-list-input" >Type: </label>
+			<input type="text" [disabled]="true" placeholder={{leave.type}}> <br>
+			<label>Reason : </label>
+            <input type="text" [disabled]="true" placeholder={{leave.reason}}> <br>
+			<label class="data-list-input" >Status Update: </label>
+			<select class="data-list-input" ngModel #status="ngModel" name="status" required>
+				<option value="Approve">Approve</option>
+				<option value="Deny">Deny</option>
+			</select>
+			<div *ngIf="status.invalid && (status.dirty || status.touched)" class="alert">
+				<div *ngIf="status.errors?.['required']">Status is required.</div>
+			</div>
+			<label>Comment : </label>
+            <input type="text" name="comment" ngModel #comment="ngModel" required minlength="2"> <br>
+			<div *ngIf="comment.invalid && (comment.dirty || comment.touched)" class="alert">
+				<div *ngIf="comment.errors?.['required']">Comment is required.</div>
+				<div *ngIf="comment.errors?.['minlength']">
+					Comment must be at least 2 characters long.
+				</div>
+			</div>
+        </fieldset>
+        <input type="submit" value="Sumit" [disabled]="!leaveForm.valid"/>
+    </form>
+</div>

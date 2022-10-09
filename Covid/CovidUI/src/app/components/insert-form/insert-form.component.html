@@ -1,0 +1,39 @@
+<div class="form-style-5">
+	<form #covidForm="ngForm" (submit)="onFormSubmit(covidForm)">
+		<fieldset>
+			<legend><span class="number">1</span>Covid Benefit Form</legend>
+			<label>Employee Id: </label>
+			<input type="text" name="id" ngModel #id="ngModel" placeholder="Employee Id *" required pattern="[0-9]+" />
+			<div *ngIf="id.invalid && (id.dirty || id.touched)" class="alert">
+				<div *ngIf="id.errors?.['required']">Id is required.</div>
+				<div *ngIf="id.errors?.['pattern']">Id format Invalid.</div>
+			</div>
+			
+			<label>Infected Date: </label>
+			<input type="date" name="date" ngModel  #date="ngModel" required max={{dateV}}/>
+			<br />
+			<div *ngIf="date.invalid && (date.dirty || date.touched)" class="alert">
+				<div *ngIf="date.errors?.['required']">Date is required.</div>
+			</div>
+
+
+			<label>Vaccine Dose: </label>
+			<input type="text" name="dosages" ngModel #dosages="ngModel" placeholder="Vaccine Dosages *" required pattern="[2-9]"/>
+			<div *ngIf="dosages.invalid && (dosages.dirty || dosages.touched)" class="alert">
+				<div *ngIf="dosages.errors?.['required']">Dosages is required.</div>
+				<div *ngIf="dosages.errors?.['pattern']">Minimum 2 Dosages need to be completed to Apply.</div>
+			</div>
+
+			<label class="data-list-input" >Upload Document: </label>
+			<select class="data-list-input" ngModel #upload="ngModel" name="upload" required pattern="Uploaded">
+				<option value="Uploaded">Uploaded</option>
+				<option value="Not Uploaded">Not Uploaded</option>
+			</select>
+			<div *ngIf="upload.invalid && (upload.dirty || upload.touched)" class="alert">
+				<div *ngIf="upload.errors?.['required']">Document is required</div>
+				<div *ngIf="upload.errors?.['pattern']">Document needs to be uploaded</div>
+			</div>
+		</fieldset>
+		<input type="submit" value="Apply for Benefit" [disabled]="!covidForm.valid"/>
+	</form>
+</div>

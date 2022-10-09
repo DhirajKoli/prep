@@ -1,0 +1,38 @@
+<app-nav-bar2></app-nav-bar2>
+<div style="padding: 2% 10%">
+	<h2>ALL Leaves</h2>
+	<div class="table1">
+    <table>
+      <thead>
+        <tr>
+		  <th>Employee Name</th>
+		  <th>Leaves Balance</th>
+          <th>Start Date</th>
+          <th>End Date</th>
+          <th>No of Days</th>
+          <th>Type</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let l of leaves">
+		  <td>{{ l.employee.name }}</td>
+		  <td>{{ l.employee.leaveRem }}</td>
+          <td>{{ l.start }}</td>
+          <td>
+            {{ l.end }}
+          </td>
+          <td>
+            {{ l.leaveDays }}
+          </td>
+          <td>
+            {{ l.type }}
+          </td>
+          <td>
+			<button (click)="approveDeny(l.id)">Approve/Deny</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

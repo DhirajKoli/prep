@@ -1,0 +1,44 @@
+.flight_box{
+    border: 1px solid;
+    font-size: larger;
+    padding: 15px;
+    width: 100%-10px;
+    margin: 10px
+}
+
+.flight_box1{
+    border: 1px solid;
+    font-size: larger;
+    padding: 15px;
+    width: 28%;
+    float: left;
+    margin: 10px;
+    background: #f4f7f8;
+    border-radius: 8px;
+}
+
+#extra_box{
+    width: 100%;
+    overflow: hidden;
+}
+
+.booking_box{
+    border: 1px solid;
+    font-size: larger;
+    padding: 15px;
+    height: auto;
+    width: 28%;
+    float: left;
+    margin: 10px    
+}
+
+.box-style-5{
+	max-width: 500px;
+	padding: 10px 20px;
+	background: #f4f7f8;
+	margin: 10px auto;
+	padding: 20px;
+	background: #f4f7f8;
+	border-radius: 8px;
+	font-family: Georgia, "Times New Roman", Times, serif;
+}

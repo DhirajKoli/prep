@@ -1,0 +1,53 @@
+
+<nav class="navbar navbar-expand-sm navbar-light bg-light">
+	<a class="navbar-brand" href="#">BRAND</a>
+	<button
+	  class="navbar-toggler"
+	  type="button"
+	  data-toggle="collapse"
+	  data-target="#navbarText"
+	  aria-controls="navbarText"
+	  aria-expanded="false"
+	  aria-label="Toggle navigation"
+	>
+	  <span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="navbarText">
+	  <ul class="d-flex navbar-nav h-100 w-100 text-md-center">
+		<li class="nav-item flex-fill">
+		  <a class="nav-link hilite" routerLink="/">Home</a>
+		</li>
+		<li class="nav-item flex-fill">
+		  <a class="nav-link" routerLink="/insert-form"
+			>Apply Covid Benefit</a
+		  >
+		</li>
+		<li class="nav-item flex-fill">
+		  <a class="nav-link" routerLink="/all-infected">All Covid Infected</a>
+		</li>
+		<li class="nav-item flex-fill">
+		  <a class="nav-link" routerLink="/filter-infected">Filter Covid Infected</a>
+		</li>
+	  </ul>
+	</div>
+  </nav>
+  
+  <script>
+	var el_up = document.getElementById("hilite");
+	var el_down = document.getElementById("GFG_DOWN");
+	var str = "Click on button to change the background color";
+  
+	el_up.innerHTML = str;
+  
+	function changeColor(color) {
+	  document.body.style.background = color;
+	}
+  
+	function gfg_Run() {
+	  changeColor("yellow");
+	  el_down.innerHTML = "Background Color changed";
+	}
+  </script>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  

@@ -1,0 +1,15 @@
+<div style="padding: 10px">
+  <h1>All Appointment</h1>
+  <div id="extra_box">
+    <div class="course_box1" *ngFor="let a of appointments">
+      <div class="box-style-5">
+        Patient Name : {{ a.pname }} <br />
+        Date : {{ a.slot.date }} <br />
+        Time : {{ a.slot.time }} <br />
+        Status : {{ a.slot.status }} <br />
+        Doctor Name : {{ a.slot.doctor.name }} <br />
+        Doctor Speciality : {{ a.slot.doctor.speciality }} <br />
+      </div>
+    </div>
+  </div>
+</div>

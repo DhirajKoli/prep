@@ -1,0 +1,39 @@
+
+
+<div style="padding: 2% 10%">
+	<h1>All Books</h1>
+	<div class="table1">
+		<table>
+		  <thead>
+			<tr>
+			  <th>Book Id</th>
+			  <th>Name</th>
+			  <th>Available</th>
+			  <th>Genre</th>
+			  <th>Action</th>
+			</tr>
+		  </thead>
+		  <tbody>
+			<tr *ngFor="let b of books">
+			  <td>{{b.id}}</td>
+			  <td>{{b.name}}
+			  </td>
+			  <td>
+				{{b.available}}
+			  </td>
+			  <td>
+				{{b.genre}}
+			  </td>
+			  <td>
+				<div *ngIf="b.available==='Yes'">
+					<button (click)="borrowBook(b.id)">Borrow</button>
+				</div>
+				<div *ngIf="b.available==='No'">
+					<button (click)="returnBook(b.id)">Return</button>
+				</div>
+			  </td>
+			</tr>
+		  </tbody>
+		</table>
+	</div>
+	</div>

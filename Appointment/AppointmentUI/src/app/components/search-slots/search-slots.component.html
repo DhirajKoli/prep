@@ -1,0 +1,121 @@
+<div class="form-style-5">
+  <form #slotDetailForm="ngForm" (submit)="onSlotDetailSubmit(slotDetailForm)">
+    <fieldset>
+      <legend><span class="number">1</span>Search Slot</legend>
+
+      <label>Patient Name: </label>
+      <input
+        type="text"
+        name="pname"
+        ngModel
+        #pname="ngModel"
+        placeholder="Patient Name *"
+        required
+        minlength="2"
+      />
+      <div
+        *ngIf="pname.invalid && (pname.dirty || pname.touched)"
+        class="alert"
+      >
+        <div *ngIf="pname.errors?.['required']">Name is required.</div>
+        <div *ngIf="pname.errors?.['minlength']">
+          Name must be at least 2 characters long.
+        </div>
+      </div>
+
+      <label>Date: </label>
+      <input
+        type="date"
+        name="date"
+        ngModel
+        #date="ngModel"
+        required
+        min="{{ dateV }}"
+      />
+      <br />
+      <div *ngIf="date.invalid && (date.dirty || date.touched)" class="alert">
+        <div *ngIf="date.errors?.['required']">Date is required.</div>
+      </div>
+
+      <label class="data-list-input">Session: </label>
+      <select
+        class="data-list-input"
+        ngModel
+        #session="ngModel"
+        name="session"
+        required
+      >
+        <option value="Morning">Morning</option>
+        <option value="Evening">Evening</option>
+      </select>
+      <div
+        *ngIf="session.invalid && (session.dirty || session.touched)"
+        class="alert"
+      >
+        <div *ngIf="session.errors?.['required']">Session is required.</div>
+      </div>
+
+      <label class="data-list-input">Slots Status: </label>
+      <select
+        class="data-list-input"
+        ngModel
+        #status="ngModel"
+        name="status"
+        required
+      >
+        <option value="Free">Free</option>
+        <option value="Booked">Booked</option>
+      </select>
+      <div
+        *ngIf="status.invalid && (status.dirty || status.touched)"
+        class="alert"
+      >
+        <div *ngIf="status.errors?.['required']">Status is required.</div>
+      </div>
+
+      <label class="data-list-input">Specialist: </label>
+      <select
+        class="data-list-input"
+        ngModel
+        #speciality="ngModel"
+        name="speciality"
+        (change)="specialitySelect(slotDetailForm)"
+        required
+      >
+        <option *ngFor="let s of specialities" value="{{ s }}">{{ s }}</option>
+      </select>
+      <div
+        *ngIf="speciality.invalid && (speciality.dirty || speciality.touched)"
+        class="alert"
+      >
+        <div *ngIf="speciality.errors?.['required']">
+          Speciality is required.
+        </div>
+      </div>
+
+      <label class="data-list-input">Doctor: </label>
+      <select
+        class="data-list-input"
+        ngModel
+        #doctorId="ngModel"
+        name="doctorId"
+        required
+      >
+        <option *ngFor="let d of doctors" value="{{ d.id }}">
+          {{ d.name }}
+        </option>
+      </select>
+      <div
+        *ngIf="doctorId.invalid && (doctorId.dirty || doctorId.touched)"
+        class="alert"
+      >
+        <div *ngIf="doctorId.errors?.['required']">Doctor is required.</div>
+      </div>
+    </fieldset>
+    <input
+      type="submit"
+      value="Search Slot"
+      [disabled]="!slotDetailForm.valid"
+    />
+  </form>
+</div>

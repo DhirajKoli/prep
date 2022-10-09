@@ -1,0 +1,40 @@
+<app-nav-bar1></app-nav-bar1>
+<div style="padding: 2% 10%">
+	<h2>Employee Leaves</h2>
+	<div class="table1">
+    <table>
+      <thead>
+        <tr>
+          <th>Start Date</th>
+          <th>End Date</th>
+          <th>No of Days</th>
+          <th>Type</th>
+          <th>Reason</th>
+          <th>Status</th>
+          <th>Comment</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let l of leaves">
+          <td>{{ l.start }}</td>
+          <td>
+            {{ l.end }}
+          </td>
+          <td>
+            {{ l.leaveDays }}
+          </td>
+          <td>
+            {{ l.type }}
+          </td>
+          <td class="wrap">{{l.reason}}</td>
+          <td>
+			      {{l.status}}
+          </td>
+          <td>
+			      {{l.comment}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

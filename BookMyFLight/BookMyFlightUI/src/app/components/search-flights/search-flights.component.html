@@ -1,0 +1,32 @@
+<h1>Search Flight</h1>
+<div class="form-style-3">
+    <form #searchForm="ngForm" (submit)="onSearchSubmit(searchForm)">
+        <fieldset>
+            <legend>Search Flight</legend>
+            <label for="field1"><span>Source <span class="required">*</span></span><input type="text" name="source" ngModel #source="ngModel" placeholder="Source *"/></label>
+            <label for="field2"><span>Destination <span class="required">*</span></span><input type="text" name="destination" ngModel #destination="ngModel" placeholder="Destination *" /></label>
+            <label for="field3"><span>Departure Date: <span class="required">*</span></span><input type="date" name="date" ngModel #date="ngModel"></label>
+        </fieldset>
+        <input type="submit" value="Search Flight" />
+    </form>
+</div>
+
+<h3>Flights</h3>
+<div *ngIf="status">
+    
+    <div id="extra_box">
+        <div class="flight_box1" *ngFor="let f of flightArr">
+            Source : {{f.source}} <br>
+            Destination : {{f.destination}} <br>
+            Departure Date : {{f.departureDate}} <br>
+            Departure Time : {{f.departureTime}} <br>
+            Arrival Date : {{f.arrivalDate}} <br>
+            Arrival Time : {{f.arrivalTime}} <br>
+            Fare / Adult : {{f.adultFare}} <br>
+            Fare / Child : {{f.childFare}} <br>
+            <button (click)="bookFlight(f.id)">Book</button>
+        </div>
+    </div>
+    <br> 
+
+</div>

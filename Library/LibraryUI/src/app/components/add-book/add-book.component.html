@@ -1,0 +1,23 @@
+<div class="form-style-5">
+	<form #bookForm="ngForm" (submit)="onBookSubmit(bookForm)">
+		<fieldset>
+			<legend><span class="number">1</span>Book Detaisls</legend>
+			<label>Book Name: </label>
+			<input type="text" name="name" ngModel #name="ngModel" placeholder="Book Name *" required minlength="2" />
+			<div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert">
+				<div *ngIf="name.errors?.['required']">Name is required.</div>
+				<div *ngIf="name.errors?.['minlength']">
+					Name must be at least 2 characters long.
+				</div>
+			</div>
+			<label>Genre: </label>
+			<input type="text" name="genre" ngModel #genre="ngModel" placeholder="Genre *" required />
+			<div *ngIf="genre.invalid && (genre.dirty || genre.touched)" class="alert">
+				<div *ngIf="genre.errors?.['required']">Genre is required.</div>
+			</div>
+			<label>Price: </label>
+			<input type="text" name="price" ngModel #price="ngModel" placeholder="Price *" />
+		</fieldset>
+		<input type="submit" value="Add Book" [disabled]="!bookForm.valid"/>
+	</form>
+</div>

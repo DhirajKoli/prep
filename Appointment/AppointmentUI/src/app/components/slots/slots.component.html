@@ -1,0 +1,37 @@
+<h2>For Patient {{pname}}</h2>
+
+<div style="padding: 2% 10%">
+  <div class="table1">
+    <table>
+      <thead>
+        <tr>
+          <th>Time</th>
+          <th>Status</th>
+          <th>Doctor Name</th>
+          <th>Doctor Speciality</th>
+          <th></th>
+
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let s of slots">
+          <td>{{ s.time }}</td>
+          <td>
+            {{ s.status }}
+          </td>
+          <td>
+            {{ s.doctor.name }}
+          </td>
+          <td>
+            {{ s.doctor.speciality }}
+          </td>
+          <td class="wrap"></td>
+          <td>
+            <button (click)="bookSlot(s.id)">Book</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

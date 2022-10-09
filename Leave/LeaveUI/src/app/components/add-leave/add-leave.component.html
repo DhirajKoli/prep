@@ -1,0 +1,32 @@
+<app-nav-bar1></app-nav-bar1>
+<div class="form-style-5">
+    <form #leaveForm="ngForm" (submit)="onLeaveSubmit(leaveForm)">
+        <fieldset>
+            <legend><span class="number">1</span>Leave Details</legend>
+			<label>Start Date: </label>
+            <input type="date" name="start" ngModel #start="ngModel"  (change)="startSelect(leaveForm)" required min={{dateSV}} /> 
+            <div *ngIf="start.invalid && (start.dirty || start.touched)" class="alert">
+				<div *ngIf="start.errors?.['required']">Start Date is required.</div>
+			</div>
+			
+            <label>End Date: </label>
+            <input type="date" name="end" ngModel #end="ngModel" required min={{dateE}}> <br>
+            <div *ngIf="end.invalid && (end.dirty || end.touched)" class="alert">
+				<div *ngIf="end.errors?.['required']">End Date is required.</div>
+			</div>
+			<label>Number of Days : </label>
+            <input type="text" name="leaveDays" ngModel #leaveDays="ngModel"> <br>
+			<div *ngIf="leaveDays.invalid && (leaveDays.dirty || leaveDays.touched)" class="alert">
+				<div *ngIf="leaveDays.errors?.['required']">Leaves Days are required.</div>
+			</div>
+			<label class="data-list-input" >Type: </label>
+			<select class="data-list-input" ngModel #type="ngModel" name="type" >
+				<option  value="Sick Leave">Sick Leave</option>
+				<option  value="Earned Leave">Earned Leave</option>
+			</select>
+			<label>Reason : </label>
+            <input type="text" name="reason" ngModel #reason="ngModel"> <br>
+        </fieldset>
+        <input type="submit" value="Add Leave" [disabled]="!leaveForm.valid"/>
+    </form>
+</div>

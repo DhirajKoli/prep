@@ -1,0 +1,69 @@
+
+<div class="form-style-5">
+	<form #filterForm="ngForm" (submit)="onFormSubmit(filterForm)">
+		<fieldset>
+			<legend><span class="number">1</span>Covid Benefit Form</legend>
+			<label class="data-list-input" >City: </label>
+			<select class="data-list-input" ngModel #city="ngModel" name="city" >
+				<option *ngFor="let c of cityArray" value="{{c}}">{{c}}</option>
+			</select>
+			<div *ngIf="city.invalid && (city.dirty || city.touched)" class="alert">
+				<div *ngIf="city.errors?.['required']">City is required</div>
+			</div>
+			<label class="data-list-input" >Project: </label>
+			<select class="data-list-input" ngModel #project="ngModel" name="project" >
+				<option *ngFor="let p of projectArray" value="{{p}}">{{p}}</option>
+			</select>
+			<div *ngIf="project.invalid && (project.dirty || project.touched)" class="alert">
+				<div *ngIf="project.errors?.['required']">Project is required</div>
+			</div>
+			<label class="data-list-input" >Gender: </label>
+			<select class="data-list-input" ngModel #gender="ngModel" name="gender" required >
+				<option value="Male">Male</option>
+				<option value="Female">Female</option>
+				<option value="Other">Other</option>
+			</select>
+			<div *ngIf="gender.invalid && (gender.dirty || gender.touched)" class="alert">
+				<div *ngIf="gender.errors?.['required']">Gender is required</div>
+			</div>
+		</fieldset>
+		<input type="submit" value="Apply filter" [disabled]="!filterForm.valid"/>
+	</form>
+</div>
+<div *ngIf="status">
+<div style="padding: 2% 10%">
+	<h1>All Infected Employee</h1>
+	<div class="table1">
+	  <table>
+		<thead>
+		  <tr>
+			<th>Employee Name</th>
+			<th>Gender</th>
+			<th>Project</th>
+			<th>City</th>
+			<th>Infected Date</th>
+			<th>Status</th>
+		  </tr>
+		</thead>
+		<tbody>
+		  <tr *ngFor="let i of infectedArray">
+			<td>{{ i.employee.name }}</td>
+			<td>
+				{{ i.employee.gender }}
+			</td>
+			<td>
+				{{ i.employee.project }}
+			</td>
+			<td>
+				{{ i.employee.city }}
+			</td>
+			<td class="wrap">{{ i.affectedDate }}</td>
+			<td>
+				{{ i.status }}
+			</td>
+		  </tr>
+		</tbody>
+	  </table>
+	</div>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<div class="form-style-5">
+        <form #bookingForm="ngForm" (submit)="onBookingSubmit(bookingForm)">
+            <fieldset>
+                <legend><span class="number">1</span>Flight Details</legend>
+                <label>Source: {{flight.source}}</label>
+                <label>Destination: {{flight.destination}}</label>
+                <label>Departure Date: {{flight.departureDate}}</label>
+                <label>Departure Time: {{flight.departureTime}}</label>
+                <label>Arrival Date: {{flight.arrivalDate}}</label>
+                <label>Arrival Time: {{flight.arrivalTime}}</label>
+                
+            </fieldset>
+            <fieldset>
+                <legend><span class="number">2</span>Fare And Seats</legend>
+                <label>Fare / Adult: Rs.{{flight.adultFare}}</label>
+                <input type="text" name="adult" ngModel #adult="ngModel"> <br>
+                <label>Fare / Child: Rs.{{flight.childFare}}</label>
+                <input type="text" name="child" ngModel #child="ngModel"> <br>
+            </fieldset>
+            <input type="submit" value="Book Tickets" />
+        </form>
+    </div>

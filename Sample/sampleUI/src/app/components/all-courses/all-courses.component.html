@@ -1,0 +1,56 @@
+
+<div style="padding: 10px">	
+<h1>All Couses </h1>
+<div id="extra_box">
+    <div class="course_box1" *ngFor="let c of courseArr">
+        <div class="box-style-5">
+        Name : {{c.name}} <br>
+        Credit : {{c.credits}} <br>
+        Fees : {{c.fee}} <br>
+        Department Name : {{c.department.name}} <br>
+        Date : {{c.date}} <br>
+        Time : {{c.time}} <br>
+		<button (click)="bookCourse(c.id)">Book</button>
+    </div>
+    </div>
+</div>
+</div>
+
+<div style="padding: 2% 10%">
+<div class="table1">
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Credit</th>
+          <th>Fees</th>
+          <th>Department</th>
+          <th>Date</th>
+          <th>Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let c of courseArr">
+          <td>{{c.name}}</td>
+          <td>
+            <span>{{c.credits}}</span>
+            <span>12:37:59</span>
+          </td>
+          <td>
+            <span>{{c.fee}}</span>
+            <span>PestControl</span>
+          </td>
+          <td>
+            <span title="{{c.department.name}}">{{c.department.name}}</span>
+            <span>NSR - Room 4607</span>
+          </td>
+          <td class="wrap">{{c.date}}</td>
+          <td>
+            <span>{{c.time}}</span>
+            <span>0580685690</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+</div>
